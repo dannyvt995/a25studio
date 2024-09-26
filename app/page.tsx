@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import styles from "./styles/page.module.css";
 import NavbarSection from '@Modules/NavbarSection'
 import HomePage from '@Page/HomePage'
-import Canvas3d from '@Page/Canvas3d'
+
 import FooterSection from '@Modules/FooterSection'
 import Lenis from "@studio-freight/lenis";
 
@@ -18,7 +18,7 @@ export default function Home() {
       // example: direction: "vertical", lerp: 0.1, smoothWheel: true, etc.
     });
     window.lenis = lenis.current
-    function raf(time:any) {
+    function raf(time:number) {
       lenis.current?.raf(time); // Cập nhật Lenis cho mỗi khung hình
       requestAnimationFrame(raf); // Tiếp tục yêu cầu cập nhật mỗi frame
     }

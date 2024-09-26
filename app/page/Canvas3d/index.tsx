@@ -2,10 +2,10 @@
 import React, { useEffect } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import s from './style.module.css'
-import { OrthographicCamera } from '@react-three/drei'
+
 import * as THREE from 'three'
 function MyOrthographicCamera() {
-  const { camera, size, set } = useThree()
+  const {  size, set } = useThree()
 
   useEffect(() => {
     console.log(size)

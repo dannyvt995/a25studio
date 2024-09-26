@@ -18,7 +18,7 @@ export default function index() {
               <li className={s.item}><Button1>Summary</Button1></li>
             </ul>
             <div className={s.more}>
-                <Button2 style={1}>Let's talk</Button2>
+                <Button2 style={1}>Lets talk</Button2>
             </div>
           </nav>
         </div>
