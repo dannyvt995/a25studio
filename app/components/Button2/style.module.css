@@ -1,0 +1,22 @@
+
+
+.button {
+    
+    font-family: var(--font2-500);
+    font-size: var(--font-s-p);
+    line-height: var(--font-lh-p);
+    letter-spacing: var(--font-ls-p);
+    padding: var(--padding-p);
+    border-radius: var(--radius-p);
+
+    display: block;
+    width: max-content;
+}
+.style1 {
+    background: var(--buttonbg);
+    color: var(--black);
+}
+.style2 {
+    background: var(--white);
+    color: var(--red);
+}
