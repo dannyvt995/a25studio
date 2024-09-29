@@ -1,14 +1,14 @@
 "use client"
 import React, { useEffect } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import s from './style.module.css'
+import useStoreZustand from '@/app/hook/useStoreZustand'
 
 import * as THREE from 'three'
 function MyOrthographicCamera() {
   const {  size, set } = useThree()
 
   useEffect(() => {
-    console.log(size)
     const aspect = size.width / size.height
     const frustumSize = size.height
 
@@ -27,20 +27,24 @@ function MyOrthographicCamera() {
     orthoCam.lookAt(0, 0, 0)
     orthoCam.updateProjectionMatrix()
   }, [])
-
+  useFrame((state) => {
+    state.camera.position.y = window.lenis?.scroll * -1
+  })
   return null
 }
 
-export default function Index() {
-
+export default function Canvas3d() {
+  const { canvasTrack } = useStoreZustand();
+  const halfWindow = window.innerHeight/2
   return (
     <div className={s.canvas3d}>
       <Canvas>
         <ambientLight intensity={Math.PI / 2} />
+        <axesHelper args={[window.innerWidth]} />
         <MyOrthographicCamera />
-        <mesh >
-            <planeGeometry args={[892.08,401.08]}/>
-            <meshBasicMaterial color={'blue'} />
+        <mesh position={[0,-canvasTrack.hero.h/2+halfWindow - canvasTrack.hero.t,0]}>
+            <planeGeometry args={[canvasTrack.hero.w,canvasTrack.hero.h]}/>
+            <meshBasicMaterial opacity={.5} color={'blue'} transparent={true} />
         </mesh>
       </Canvas>
     </div>

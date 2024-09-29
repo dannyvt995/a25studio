@@ -14,6 +14,7 @@
 }
 .button {
     display:flex;
+    padding-bottom:5vw;
 }
 .largeTitle {
     font-family: var( --font1-500);
@@ -47,15 +48,21 @@
     .descript {
         max-width: 50%;
         padding:  2.345432vw  0;
+      
     }
     .button a {
         margin: 0 1vw;
     }
     .video {
         max-width: 90%;
-        padding: 5vw 0;
+        aspect-ratio: 1/.5;
+ /*        margin: 5vw 0; */
         
         margin: auto;
 
+    }
+    .video img {
+        width: 100% !important;
+        height: 100% !important;
     }
 }

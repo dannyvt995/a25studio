@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useRef,useEffect } from 'react'
 import s from './style.module.css'
 import Button2 from '@Components/Button2'
 import ImagePreload from '@Components/ImagePreload'
+import useStoreZustand from '@/app/hook/useStoreZustand'
+
+
 export default function index() {
+  
+const { setHeroDimensions } = useStoreZustand();
+  const canvasTrack = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const rect = canvasTrack.current?.getBoundingClientRect()
+    console.log(rect)
+    setHeroDimensions(rect?.width,rect?.height,rect?.top,rect?.left)
+  }, []);
   return (
     <section className={s.heroSection}>
       <div className={s.container}>
@@ -14,7 +25,7 @@ export default function index() {
               <Button2 style={2}>Demo App</Button2>
           </div>
         </div>
-        <div className={s.video}>
+        <div className={s.video} ref={canvasTrack}>
             <ImagePreload src='/hero/1.png' alt="no" w="100%" h="auto"/>
         </div>
       </div>

@@ -50,7 +50,7 @@
     padding: 2vw;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .item h3 {
 
